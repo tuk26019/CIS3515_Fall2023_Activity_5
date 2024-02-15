@@ -2,16 +2,14 @@ package edu.temple.simplerecyclerview
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 // TODO(Step 1: Implement click behavior)
 
 // TODO (Step 1a: Accept lambda in constructor)
-class NumberDisplayAdapter (private val numbers: Array<Int>, private val callBack: (Int) -> Unit) : RecyclerView.Adapter<NumberDisplayAdapter.NumberViewHolder>() {
+class NumberDisplayAdapter(private val numbers: Array<Int>, private val callBack: (Float) -> Unit) : RecyclerView.Adapter<NumberDisplayAdapter.NumberViewHolder>() {
 
     // TODO (Step 1b: Invoke lambda via onClickListener)
     inner class NumberViewHolder (layout: View) : RecyclerView.ViewHolder (layout) {
@@ -21,7 +19,7 @@ class NumberDisplayAdapter (private val numbers: Array<Int>, private val callBac
             layout.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    callBack.invoke(numbers[position])
+                    callBack.invoke(numbers[position].toFloat())
                 }
             }
         }
